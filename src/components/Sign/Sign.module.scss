@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Pacifico&family=Permanent+Marker&display=swap');
+
+
+@import './../../index.scss';
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.sign__container {
+    width: 350px;
+    height: 600px;
+    // margin-top: 200px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .4);
+    border-radius: 10px;
+}
+
+.company__name {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 35px;
+    color: $lite_red;
+    letter-spacing: 3px;
+}
+
+.company__title {
+    width: 100%;
+    // margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    // font-family: 'Permanent Marker', cursive;
+    font-family: "Open Sans";
+    font-size: 17px;
+    color: $dark;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.company__title::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
+    background: $lite_red;
+    width: 80%;
+    height: 1px;
+    // background: red;
+}
+
+.input__container {
+    margin-top: 10px;
+    padding-top: 10px;
+    position: relative;
+    @extend %flexCenter;
+}
+
+.input__placeholder {
+    position: absolute;
+    top: 10px;
+    left: 75px;
+    font-family: "Nunito";
+    z-index: 2;
+    font-size: 17px;
+    transition: .2s all;
+    // width: 100%;
+}
+
+.input {
+    // padding: 10px;
+    font-family: 'Nunito', cursive;
+    padding: 0;
+    // padding-bottom: 4px;
+    padding: 10px;
+    outline: none;
+    margin: 0;
+    width: 220px;
+    font-size: 17px;
+    border: none;
+    border-radius: 7px;
+    border: 2px solid #dddddd;
+    // z-index: 10;
+    transition: .2s all;
+}
+
+.input:hover {
+    border: 2px solid #c5c5c5 ;
+}
+
+.input:focus {
+    border: 2px solid $lite_red;
+}
+
+
+.button {
+    margin-top: 20px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    // padding: 0;
+    justify-content: center;
+    font-size: 18px;
+    // line-height: 15px;
+    height: 45px;
+    color: white;
+    border-radius: 7px;
+    font-family: "Open Sans";
+    // background-color: $lite_red;    
+    border: 1px solid $lite_red;
+    cursor: pointer;
+    // color: $dark;
+    color: black;
+    font-weight: bold;
+}
