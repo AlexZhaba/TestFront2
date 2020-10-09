@@ -1,0 +1,12 @@
+@import "index.scss";
+
+%test {
+  background: $backgroundColor;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  @extend %test;
+} 

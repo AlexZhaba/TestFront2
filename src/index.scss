@@ -1,0 +1,11 @@
+$backgroundColor: #f0f0f0;
+$dark: #352c4a;
+$lite_red: #c96f6f;
+$lite_dark:  rgba(0, 0, 0, .4);
+
+
+%flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
