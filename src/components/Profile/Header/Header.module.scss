@@ -1,0 +1,13 @@
+@import "./../../../index.scss";
+
+.header {
+    width: 100%;
+    background: #FFF;
+    height: 40px;
+    border-bottom: 1px solid $borderColor;
+    font-family: 'Fredoka One', cursive;
+    font-size: 25px;
+    color: $lite_red;
+    letter-spacing: 3px;
+    @extend %flexCenter;
+}

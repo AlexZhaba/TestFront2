@@ -1,6 +1,8 @@
 import React, {useState, useRef, useEffect} from 'react';
 import s from './Sign.module.scss';
 import {NavLink} from 'react-router-dom';
+
+import {CircularProgress} from '@material-ui/core'; 
 interface SignUpProps {
     setActivePage: (num: number) => void;
 }
@@ -12,6 +14,7 @@ let SignUp: React.FC<SignUpProps> = (props) => {
     let [password, setPassword] = useState<string>("");
     let [password2, setPassword2] = useState<string>("");
 
+    let [loading, setLoading] = useState<boolean>(false);
     //refs
     let usernameRef = useRef<HTMLInputElement | null>(null);
     let mailRef = useRef<HTMLInputElement | null>(null);
@@ -36,10 +39,18 @@ let SignUp: React.FC<SignUpProps> = (props) => {
         })
         password2Ref.current?.addEventListener("keydown", (event) => {
             if (event.key === "Enter" && password2Ref.current?.value !== "") {
-                alert('nice');
+                sendReg();
             }
         })
     }, []);
+    
+    let sendReg = () => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false);
+            props.setActivePage(3);
+        }, 1000)
+    }
     return (
         <>
             <div className={s.input__container}>
@@ -62,11 +73,18 @@ let SignUp: React.FC<SignUpProps> = (props) => {
                     (e: React.ChangeEvent<HTMLInputElement>) => setPassword2(e.target.value)}
                 />
             </div>
+            
             <div className={s.input__container}>
-                <div className={s.button}>
+                <div className={s.button} onClick={sendReg}>
                     Зарегистрироваться
                 </div>
             </div>
+             
+             {loading && 
+                <div className={s.loader__container}>
+                    <CircularProgress color="primary"/>
+                </div>
+                }
             <div className={s.alreadyReg}>
                 Already Registered? <span onClick={() => props.setActivePage(2)} className={s.signBottom}> Sign in</span>
             </div>
@@ -77,6 +95,8 @@ let SignUp: React.FC<SignUpProps> = (props) => {
 interface SignInProps {
     setActivePage: (num: number) => void;
 }
+
+
 
 let SignIn: React.FunctionComponent<SignInProps> = (props) => {
     let [username, setUsername] = useState<string>("");
@@ -123,6 +143,18 @@ let SignIn: React.FunctionComponent<SignInProps> = (props) => {
     )
 }
 
+let EmailConfirm: React.FC = () => {
+    return ( 
+        <div className={s.email__container}>
+            {/* <img src="https://www.flaticon.com/svg/static/icons/svg/1334/1334096.svg" className={s.email_icon}/>  */}
+            <div className={s.mail__title}>Осталось чуть-чуть!</div>
+            <div className={s.mail__text}>
+                Письмо с подтверждением вашего email было отправлено. <br/>
+                Следуйте инструкциям из письма
+            </div>
+        </div>
+    )
+}
 let Sign: React.FC = () => {
     let [activePage, setActivePage] = useState<number>(1);
     return (
@@ -136,6 +168,8 @@ let Sign: React.FC = () => {
                 {activePage == 2 && <SignIn
                                         setActivePage={setActivePage}
                                     />}
+
+                {activePage == 3 && <EmailConfirm/>}
 
             </div>
         </div>

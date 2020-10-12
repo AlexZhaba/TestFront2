@@ -4,7 +4,7 @@ import './App.scss'
 
 //components
 import {Sign} from './components/Sign/Sign';
-
+import {Profile} from './components/Profile/Profile';
 
 let App: React.FC = () => {
   return (
@@ -13,6 +13,14 @@ let App: React.FC = () => {
         <Route 
             path='/sign'
             render={() => <Sign /> }
+        />
+        <Route
+            path="/profile"
+            render={() => <Profile/>}
+        />
+        <Route
+            path="/"
+            render={() => <Redirect to="/sign"></Redirect>}
         />
       </Switch>
     </div>

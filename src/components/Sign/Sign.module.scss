@@ -146,3 +146,44 @@
 .signBottom:hover {
     text-decoration: underline;   
 }
+
+.email__container {
+    @extend %flexCenter;
+    flex-direction: column;
+}
+
+.email_icon {
+    margin-top: 50px;
+    width: 100px;
+
+}
+
+.mail__title {
+    margin-top: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Open Sans";
+    color: $dark;
+}
+
+.mail__text {
+    margin-top: 10px;
+    // background: red;
+    padding: 20px;
+    width: calc(100% - 40px);
+    text-align: center;
+    font-family: "Open Sans";
+    @extend %flexCenter;
+}
+
+.loader__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .2);
+    z-index: 2;
+    @extend %flexCenter;
+}
